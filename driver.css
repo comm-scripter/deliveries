@@ -3,7 +3,7 @@ html body {
     padding: 0;
     box-sizing: border-box;
     background: blue;
-    overflow: hidden;
+    /*overflow: hidden;*/
   }
 
   .header {
@@ -73,6 +73,7 @@ h1 {
     font-size: 6vw;
     padding: 10px;
     margin: 40px auto auto;
+    background: white;
     border-radius: 2vw;
     border: none;
     box-shadow: 2px 4px 8px black;
