@@ -107,9 +107,9 @@ h1 {
 
 .vertical {
   display: none;
-  position: absolute;
+  position: relative;
   width: 4px;
-  height: 20%;
+  height: 50%;
   left: 50%;
   right: 50%;
   background: black;
