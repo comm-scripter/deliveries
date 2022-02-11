@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="driver.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header"> <!-- header and topnav only used in widescreen views -->
+            <div class="topnav">
+                <a href="index.html">Home</a>
+                <a class="active" href="driver.html">Driver</a>
+                <a href="occupant.html">Occupant</a>
+            </div> 
+        </header>
+        
+        <h1>Driver Functions</h1>
+        <label class="status-label">Occupant Status</label>
+        <div class="window">
+            <div class="window-message"><h4>Accepting deliveries</h4></div>
+        </div>
+
+        <button class="deliver" onclick="request()">Request delivery</button>
+
+        <div class="status">
+            <div class="vertical" id="sweeper">
+                |
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
