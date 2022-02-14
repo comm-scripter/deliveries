@@ -13,10 +13,10 @@ let requestSent;
 
 window.addEventListener('load', function() {
     console.log(window.location.pathname);
-    if (this.window.location.pathname == "/occupant.html") {
+    if (this.window.location.pathname == "/deliveries/occupant.html") {
         occupant();
     }
-    else if (this.window.location.pathname == "/driver.html") {
+    else if (this.window.location.pathname == "/deliveries/driver.html") {
         driver();
     }
     // console.log('All assets are loaded')
