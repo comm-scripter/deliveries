@@ -125,6 +125,13 @@ function occupant() {
         occYesWin.style.display = "block";
         saveState(val);
     }
+    else if (val == null || occVal == "null") {
+        console.log("occVal = ", occVal);
+        slider.checked = false;
+        occYesWin.style.display = "none";
+        occNoWin.style.display = "block";
+        saveState(val);
+    }
 }
 
 function driver() {
