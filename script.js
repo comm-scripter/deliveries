@@ -18,27 +18,7 @@ window.addEventListener('load', function() {
     }
     else if (this.window.location.pathname == "/deliveries/driver.html") {
         driver();
-    }
-    // console.log('All assets are loaded')
-    // occVal = sessionStorage.getItem('storedSelection');
-    // console.log("occVal = ", occVal);
-    
-    // if (occVal == "false") {
-    //     driveNullWin.style.display = "none";
-    //     driveYesWin.style.display = "none";
-    //     driveNoWin.style.display = "block";
-    // }
-    // else if (occVal == "true") {
-    //     driveNullWin.style.display = "none";
-    //     driveNoWin.style.display = "none";
-    //     driveYesWin.style.display = "block";
-    // }
-    // else if (occVal == "null") {
-    //     driveNullWin.style.display = "block";
-    //     driveNoWin.style.display = "none";
-    //     driveYesWin.style.display = "none";
-    // }
-    
+    } 
 });
 
 function request() {
