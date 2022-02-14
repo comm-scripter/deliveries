@@ -147,6 +147,9 @@ function occupant() {
 }
 
 function driver() {
+    window.addEventListener('load', function() {
+    console.log("Driver function fully loaded...");
+});
     requestSent = sessionStorage.getItem('request');
     console.log("requestSent = ", requestSent);
     if (requestSent == "true") {
