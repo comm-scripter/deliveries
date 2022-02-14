@@ -124,40 +124,43 @@ function getOccStatus() {
 }
 
 function occupant() {
-    occVal = sessionStorage.getItem('storedSelection');
-    console.log("occVal = ", occVal);
-    slider.checked = occVal;//trying to set the slider based on what is in storage(last known setting) - didn't work
-    // let val=slider.checked;
-    let val = occVal;
-    console.log(val);
-    if (val == false || occVal == "false") {
+     window.addEventListener('load', function() {
+        console.log("Occupant function fully loaded...");
+        occVal = sessionStorage.getItem('storedSelection');
         console.log("occVal = ", occVal);
-        slider.checked = false;
-        occYesWin.style.display = "none";
-        occNoWin.style.display = "block";
-        saveState(val);
-    }
-    else if (val == true || occVal == "true") {
-        console.log("occVal = ", occVal);
-        slider.checked = true;
-        occNoWin.style.display = "none";
-        occYesWin.style.display = "block";
-        saveState(val);
-    }
+        slider.checked = occVal;//trying to set the slider based on what is in storage(last known setting) - didn't work
+        // let val=slider.checked;
+        let val = occVal;
+        console.log(val);
+        if (val == false || occVal == "false") {
+            console.log("occVal = ", occVal);
+            slider.checked = false;
+            occYesWin.style.display = "none";
+            occNoWin.style.display = "block";
+            saveState(val);
+        }
+        else if (val == true || occVal == "true") {
+            console.log("occVal = ", occVal);
+            slider.checked = true;
+            occNoWin.style.display = "none";
+            occYesWin.style.display = "block";
+            saveState(val);
+        }
+     });
 }
 
 function driver() {
     window.addEventListener('load', function() {
-    console.log("Driver function fully loaded...");
-});
-    requestSent = sessionStorage.getItem('request');
-    console.log("requestSent = ", requestSent);
-    if (requestSent == "true") {
-        request();
-        getOccStatus();
-    }
-    else {
-        getOccStatus();
-    }
-    
-}
+        console.log("Driver function fully loaded...");
+
+        requestSent = sessionStorage.getItem('request');
+        console.log("requestSent = ", requestSent);
+        if (requestSent == "true") {
+            request();
+            getOccStatus();
+        }
+        else {
+            getOccStatus();
+        }
+    });
+};
