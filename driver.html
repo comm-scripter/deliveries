@@ -19,10 +19,15 @@
         
         <h1>Driver Functions</h1>
         <label class="status-label">Occupant Status</label>
-        <div class="window">
+        <div class="driver-null-window" id="driver-null-window">
+            <div class="null-window-message"><h4>No Info</h4></div>
+        </div>
+        <div class="driver-yes-window" id="driver-yes-window">
             <div class="window-message"><h4>Accepting deliveries</h4></div>
         </div>
-
+        <div class="driver-no-window" id="driver-no-window">
+            <div class="window-message"><h4>No deliveries</h4></div>
+        </div>
         <button class="deliver" onclick="request()">Request delivery</button>
 
         <div class="status">

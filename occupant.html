@@ -17,6 +17,23 @@
             </div> 
         </header>
         <h1>Occupant functions</h1>
+        <label class="status-label">Status</label>
+        <div class="yes-window" id="occupant-yes-window">
+            <div class="window-message"><h4>Accepting deliveries</h4></div>
+        </div>
+        <div class="no-window" id="occupant-no-window">
+            <div class="window-message"><h4>No deliveries</h4></div>
+        </div>
+        <label class="switch" for="status-slider">
+            <input type="checkbox" id="status-slider" name="status-slider" value="yes" onclick="getStatus()">
+            <span class="slider round"></span>
+        </label>
+        <div class="incoming-delivery">
+            <div class="incoming-request" id="sounder">
+                <div class="incoming-message"><h4>Delivery Requested!</h4></div>
+                
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
