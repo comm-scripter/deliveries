@@ -158,3 +158,16 @@ h1 {
       transform:rotate(360deg); 
   } 
 }
+
+.checkmark {
+  display: none;
+  transform: rotate(45deg);
+  height: 105px;
+  width: 42px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  /* margin-left: 60%; */
+  border-bottom: 12px solid #78b13f;
+  border-right: 12px solid #78b13f;
+}

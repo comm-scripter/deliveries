@@ -6,17 +6,21 @@ const occNoWin=document.getElementById("occupant-no-window");
 const driveNullWin=document.getElementById("driver-null-window");
 const driveYesWin=document.getElementById("driver-yes-window");
 const driveNoWin=document.getElementById("driver-no-window");
+const ackBtn=document.getElementById("ack-btn");
 let requestSent;
+let ackMessage;
+const chk=document.getElementById("check");
+let ackReceived;
 
 
 // getStatus();
 
 window.addEventListener('load', function() {
     console.log(window.location.pathname);
-    if (this.window.location.pathname == "/deliveries/occupant.html") {
+    if (this.window.location.pathname == "/occupant.html") {// gethub: /deliveries/occupant.html
         occupant();
     }
-    else if (this.window.location.pathname == "/deliveries/driver.html") {
+    else if (this.window.location.pathname == "/driver.html") {// gethub: /deliveries/driver.html
         driver();
     } 
 });
@@ -28,6 +32,7 @@ function request() {
     console.log("occVal = ", occVal);
     requestSent = true;
     sessionStorage.setItem('request', requestSent);
+    console.log("requestSent = ", requestSent)
 }
 
 // function getStatus() {
@@ -132,6 +137,7 @@ function occupant() {
         occNoWin.style.display = "block";
         saveState(val);
     }
+    checkDeliveryRequest();
 }
 
 function driver() {
@@ -142,8 +148,36 @@ function driver() {
     if (requestSent == "true") {
         request();
         getOccStatus();
+        getAckStatus();
     }
     else {
         getOccStatus();
     }
 };
+
+function checkDeliveryRequest() {
+    requestSent = sessionStorage.getItem('request');
+    console.log("requestSent = ", requestSent);
+    if (requestSent == null || requestSent == "false") {
+        console.log("no delivery request");
+    }
+    else if (requestSent == "true") {
+        console.log("delivery request sent");
+        ackBtn.style.display = "block";
+    }
+}
+
+function ack() {
+    console.log("delivery acknowledged!");
+    ackMessage = true;
+    sessionStorage.setItem('acknowledge', ackMessage);
+}
+
+function getAckStatus() {
+    ackReceived = sessionStorage.getItem('acknowledge');
+    if (ackReceived == "true") {
+        console.log("delivery acknowledged");
+        chk.style.display = "block";
+        sweep.style.display = "none";
+    }
+}

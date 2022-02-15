@@ -184,14 +184,14 @@ input:checked + .slider:before {
 
 .incoming-delivery {
   display: block;
-  width: 70vw;
+  /* width: 70vw;
   height: 70vw;
   border-radius: 50%;
   background: rgb(217, 253, 86);
   left: 0;
   right: 0;
   margin: auto;
-  margin-top: 60px;
+  margin-top: 60px; */
 }
 
 .incoming-request {
@@ -214,4 +214,16 @@ input:checked + .slider:before {
   margin: auto;
   top: 25%;
   font-size: 20px;
+}
+
+.ack-btn {
+  display: none;
+  width: 70vw;
+  font-size: 6vw;
+  padding: 10px;
+  margin: 40px auto auto;
+  border-radius: 2vw;
+  border: none;
+  box-shadow: 2px 4px 8px black;
+  cursor: pointer;
 }
