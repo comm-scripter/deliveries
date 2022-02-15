@@ -17,10 +17,10 @@ let ackReceived;
 
 window.addEventListener('load', function() {
     console.log(window.location.pathname);
-    if (this.window.location.pathname == "/occupant.html") {// gethub: /deliveries/occupant.html
+    if (this.window.location.pathname == "/deliveries/occupant.html") {// gethub: /deliveries/occupant.html
         occupant();
     }
-    else if (this.window.location.pathname == "/driver.html") {// gethub: /deliveries/driver.html
+    else if (this.window.location.pathname == "/deliveries/driver.html") {// gethub: /deliveries/driver.html
         driver();
     } 
 });
