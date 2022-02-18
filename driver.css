@@ -160,10 +160,12 @@ h1 {
 }
 
 .checkmark {
+  position: relative;
   display: none;
   transform: rotate(45deg);
   height: 105px;
   width: 42px;
+  top: 50px;
   left: 0;
   right: 0;
   margin: auto;

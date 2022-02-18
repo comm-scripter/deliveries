@@ -1,5 +1,6 @@
 const sweep=document.getElementById("sweeper");
 const ping=new Audio("ping.wav");
+const morse=new Audio("morse.wav");
 const slider=document.getElementById("status-slider");
 const occYesWin=document.getElementById("occupant-yes-window");
 const occNoWin=document.getElementById("occupant-no-window");
@@ -26,13 +27,20 @@ window.addEventListener('load', function() {
 });
 
 function request() {
-    sweep.style.display = "block";
-    sendPing() //send a notification to the occupant
-    occVal = sessionStorage.getItem('storedSelection');
-    console.log("occVal = ", occVal);
-    requestSent = true;
-    sessionStorage.setItem('request', requestSent);
-    console.log("requestSent = ", requestSent)
+    if (requestSent == "true") {
+        console.log("requestSent is already true")
+    }
+    else {
+        chk.style.display = "none";
+        sweep.style.display = "block";
+        sendPing() //send a notification to the occupant
+        occVal = sessionStorage.getItem('storedSelection');
+        console.log("occVal = ", occVal);
+        requestSent = true;
+        sessionStorage.setItem('request', requestSent);
+        console.log("requestSent = ", requestSent);
+    }
+    
 }
 
 // function getStatus() {
@@ -83,6 +91,10 @@ function sendPing() {
     //notify occupant a delivery has arrived
 }
 
+function sendMorse() {
+    morse.play();
+}
+
 function saveState(val) {//save current setting to storage
     sessionStorage.setItem('storedSelection', val);
   }
@@ -91,7 +103,7 @@ function getOccStatus() {
     console.log("getOccStatus function running...");
     occVal = sessionStorage.getItem('storedSelection');
     console.log("occVal = ", occVal);
-    if (occVal == "false") {
+    if (occVal == "false" || occVal == "null" || occVal == null) {
         driveNullWin.style.display = "none";
         driveYesWin.style.display = "none";
         driveNoWin.style.display = "block";
@@ -101,11 +113,11 @@ function getOccStatus() {
         driveNoWin.style.display = "none";
         driveYesWin.style.display = "block";
     }
-    else if (occVal == null) {
-        driveNullWin.style.display = "block";
-        driveNoWin.style.display = "none";
-        driveYesWin.style.display = "none";
-    }
+    // else if (occVal == "null") {
+    //     driveNullWin.style.display = "block";
+    //     driveNoWin.style.display = "none";
+    //     driveYesWin.style.display = "none";
+    // }
 }
 
 function occupant() {
@@ -130,7 +142,7 @@ function occupant() {
         occYesWin.style.display = "block";
         saveState(val);
     }
-    else if (val == null || occVal == null) {
+    else if (val == null || occVal == "null") {
         console.log("occVal = ", occVal);
         slider.checked = false;
         occYesWin.style.display = "none";
@@ -168,6 +180,7 @@ function checkDeliveryRequest() {
 }
 
 function ack() {
+    sendMorse();
     console.log("delivery acknowledged!");
     ackMessage = true;
     sessionStorage.setItem('acknowledge', ackMessage);
@@ -179,5 +192,7 @@ function getAckStatus() {
         console.log("delivery acknowledged");
         chk.style.display = "block";
         sweep.style.display = "none";
+        requestSent = false;
+        sessionStorage.setItem('request', requestSent);
     }
 }
